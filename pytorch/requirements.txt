@@ -1,0 +1,5 @@
+torch == 1.2.0a0+afb7a16
+numpy == 1.19.1
+Pillow == 6.2.0
+scikit-learn == 0.23.2
+six == 1.15.0

@@ -1,0 +1,1 @@
+python run_experiments.py -e resnet50_baseline resnet50_ssal "$@"
