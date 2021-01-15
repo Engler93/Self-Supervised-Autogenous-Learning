@@ -24,14 +24,12 @@ By running the `run_all.sh` script, the key experiments for CIFAR100 are reprodu
 
 #### Pytorch (ImageNet)
 
-_Note: The reported values for ImageNet have been obtained training with internal libraries for more efficient data loading and augmentation. We are currently recomputing results without those libraries. Once we have them, we will update the values here in the repository. The offered pretrained models have been trained on our original code._
-
 The `run_all.sh` has to be run with the Folder of the ImageNet dataset specified in the `--datadir` option, e.g. `bash run_all.sh --datadir "../data/ImageNet"`. The folder needs to have the structure expected by the `ImageNet` loader of Pytorch. The script then trains a Resnet50 on ImageNet - first without and then with SSAL. Similarly to the Keras version, a single experiment can be executed by giving just one of the experiment identifiers. With the additional flag `--pretrained`, pretrained models can be loaded from from the `models` folder. If the corresponding models are not found, they are downloaded.
 
 ##### Results (from the paper)
-- Accuracy for SSAL Resnet50 on Imagenet. Experiments are run 3 times. Standard deviation is 0.1p.p. (except Top-1 on +LC which was 0.2p.p.). +TR means that the model has been trained using a SSAL objective but the evaluation only uses the original classifier. +JP means that, in addition to training with a SSAL branch, joint predictions are issued combining the output of the original classifier and the SSAL branch. 
+- Accuracy for SSAL Resnet50 on Imagenet. Experiments are run 3 times. Standard deviation is 0.1p.p. (except Top-1 on +LC which was 0.2p.p.). +TR means that the model has been trained using a SSAL objective but the evaluation only uses the original classifier. +JP means that, in addition to training with SSAL branches, joint predictions are issued combining the output of the original classifier and the SSAL branches. The reported values for ImageNet have been obtained training with internal libraries for more efficient data loading and augmentation. More recent results without those libraries and using the code given in this repository are given in parentheses.
 
-|       | baseline   | +TR  | +JP           |
-|-------|------------|------|---------------|
-| Top-1 | 75.5       | 76.4 | __76.9__      |
-| Top-5 | 92.7       | 93.3 | __93.7__      |
+|       | baseline   | +TR        | +JP                 |
+|-------|------------|------------|---------------------|
+| Top-1 | 75.5 (76.2)| 76.4 (76.9)| __76.9__ __(77.4)__ |
+| Top-5 | 92.7       | 93.3       | __93.7__            |
